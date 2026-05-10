@@ -165,7 +165,7 @@ jobs:
         if: github.event.inputs.upload_method == 'release'
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.event.inputs.release_tag != '' && github.event.inputs.release_tag || format('pixeldrain-{0}', github.run_number) }}
+          tag_name: ${{ github.event.inputs.release_tag || format('pixeldrain-{0}', github.run_number) }}
           name: Pixeldrain Download Release
           body: |
             Pixeldrain download completed.
@@ -182,5 +182,4 @@ jobs:
         if: always()
         shell: bash
         run: |
-          rm -rf temp_dl</content>
-<parameter name="filePath">d:\MR test\Meli-Action\.github\workflows\pixeldrain_downloader.yml
+          rm -rf temp_dl
